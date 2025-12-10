@@ -1,8 +1,12 @@
 'use client'
 
-import { combo } from '@/data/products'
+import { ComboOffer } from '@/domain/product'
 
-export default function ComboSection() {
+interface ComboSectionProps {
+  combo: ComboOffer
+}
+
+export default function ComboSection({ combo }: ComboSectionProps) {
   const handleBuyCombo = () => {
     alert('Você clicou para comprar o combo!')
   }

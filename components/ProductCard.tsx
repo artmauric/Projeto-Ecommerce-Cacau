@@ -1,6 +1,6 @@
 'use client'
 
-import { Product } from '@/types/product'
+import { Product } from '@/domain/product'
 import { theme } from '@/config/theme'
 
 interface ProductCardProps {

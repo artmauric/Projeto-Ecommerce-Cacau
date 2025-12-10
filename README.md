@@ -29,15 +29,18 @@ http://localhost:3000
 
 ```
 ├── app/              # Páginas e layouts (Next.js App Router)
-├── components/       # Componentes React reutilizáveis
-├── data/            # Dados dos produtos
-├── types/           # Definições TypeScript
-└── public/          # Arquivos estáticos (imagens, etc.)
+├── application/      # Serviços/casos de uso (regras de aplicação)
+├── domain/           # Entidades e tipos de negócio
+├── infrastructure/   # Fontes de dados (mock, API, etc.)
+├── components/       # Componentes de UI (camada de apresentação)
+├── config/           # Configurações compartilhadas (tema)
+├── app/              # Páginas e layouts (Next.js App Router)
+└── public/           # Arquivos estáticos (imagens, etc.)
 ```
 
 ## 🛍️ Configuração dos Produtos
 
-Os produtos podem ser editados no arquivo `data/products.ts`. Você pode adicionar:
+Os produtos podem ser editados no arquivo `infrastructure/data/products.data.ts`. Você pode adicionar:
 - Nome do produto
 - Descrição
 - Preço

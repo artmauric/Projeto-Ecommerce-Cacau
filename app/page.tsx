@@ -5,9 +5,12 @@ import Testimonials from '@/components/Testimonials'
 import FAQ from '@/components/FAQ'
 import ComboSection from '@/components/ComboSection'
 import Footer from '@/components/Footer'
-import { products } from '@/data/products'
+import { productService } from '@/application/services/productService'
 
 export default function Home() {
+  const products = productService.list()
+  const combo = productService.getCombo()
+
   return (
     <main>
       <HeroSection />
@@ -35,7 +38,7 @@ export default function Home() {
       
       <FAQ />
       
-      <ComboSection />
+      <ComboSection combo={combo} />
       
       <Footer />
     </main>
