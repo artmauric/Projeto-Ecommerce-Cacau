@@ -15,7 +15,7 @@ export const products: Product[] = [
       'Perfeito para rituais e meditações diárias',
     ],
     price: 197.0,
-    image: '/images/oraculo-cacau.jpg',
+    image: '/images/oraculo-cacau.png',
   },
   {
     id: '2',
@@ -31,7 +31,7 @@ export const products: Product[] = [
       'Papel premium de alta qualidade',
     ],
     price: 147.0,
-    image: '/images/planner-cacau.jpg',
+    image: '/images/planner-cacau2.jpg',
   },
 ]
 
