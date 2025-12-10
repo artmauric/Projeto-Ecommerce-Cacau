@@ -1,14 +1,14 @@
 // Configuração de tema - Ajuste aqui para corresponder ao protótipo
 export const theme = {
   colors: {
-    primary: '#8B4513',
-    secondary: '#D2691E',
-    accent: '#FF6B35',
-    background: '#FFF8DC',
-    text: '#333',
-    textLight: '#666',
-    cardBackground: '#FFFFFF',
-    border: '#E0E0E0',
+    primary: '#4a2a16',
+    secondary: '#7a4b26',
+    accent: '#d6a85b',
+    background: '#fdf8f1',
+    text: '#3a2a1c',
+    textLight: '#6b5b4a',
+    cardBackground: '#fffdf8',
+    border: '#e8dfd3',
   },
   layout: {
     // 'grid' | 'list' | 'cards'

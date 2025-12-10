@@ -6,17 +6,17 @@
 
 :root {
   /* Cores do protótipo - Cacau Sagrado */
-  --primary-color: #5C3A21; /* Marrom escuro para textos e botões */
-  --secondary-color: #8B4513; /* Marrom médio */
-  --accent-color: #D2691E; /* Laranja-marrom para preços */
-  --gold-accent: #D4AF37; /* Dourado para linhas decorativas */
-  --orange-button: #FF8C42; /* Laranja-dourado para botões especiais */
-  --background-color: #FFF8DC; /* Bege claro */
-  --text-color: #333; /* Marrom escuro para textos */
-  --text-light: #666; /* Cinza para textos secundários */
-  --card-background: #FFFFFF; /* Branco para cards */
-  --footer-bg: #5C3A21; /* Marrom escuro para footer */
-  --border-color: #E0E0E0;
+  --primary-color: #4a2a16; /* Cacau escuro */
+  --secondary-color: #7a4b26; /* Marrom médio */
+  --accent-color: #d6a85b; /* Dourado suave para preços e destaques */
+  --gold-accent: #cfa45a; /* Linha decorativa dourada */
+  --orange-button: #d69b4c; /* Laranja-dourado para botões */
+  --background-color: #fdf8f1; /* Fundo claro/bege */
+  --text-color: #3a2a1c; /* Marrom escuro para textos */
+  --text-light: #6b5b4a; /* Marrom claro para textos secundários */
+  --card-background: #fffdf8; /* Branco quente para cards */
+  --footer-bg: #3a2213; /* Cacau profundo no footer */
+  --border-color: #e8dfd3;
   
   /* Espaçamentos */
   --spacing-xs: 8px;
@@ -209,7 +209,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #5C3A21 0%, #8B4513 100%);
+  background: linear-gradient(135deg, rgba(58, 34, 19, 0.92) 0%, rgba(74, 42, 22, 0.9) 60%, rgba(122, 75, 38, 0.85) 100%);
   position: relative;
   padding: var(--spacing-xl) 0;
   text-align: center;
@@ -245,7 +245,7 @@ body {
 
 .hero-button {
   padding: 16px 40px;
-  background: linear-gradient(135deg, #FF8C42 0%, #D2691E 100%);
+  background: linear-gradient(135deg, #d69b4c 0%, #c07a2d 100%);
   color: white;
   border: none;
   border-radius: 50px;
@@ -402,7 +402,7 @@ body {
 
 .product-detail-button {
   padding: 16px 32px;
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, #4a2a16 0%, #3a2213 100%);
   color: white;
   border: none;
   border-radius: var(--border-radius-sm);
@@ -503,7 +503,7 @@ body {
 .product-grid-button {
   width: 100%;
   padding: 14px 24px;
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, #4a2a16 0%, #3a2213 100%);
   color: white;
   border: none;
   border-radius: var(--border-radius-sm);
@@ -701,7 +701,7 @@ body {
 .combo-button {
   width: 100%;
   padding: 18px 32px;
-  background: linear-gradient(135deg, #FF8C42 0%, #D2691E 100%);
+  background: linear-gradient(135deg, #d69b4c 0%, #c07a2d 100%);
   color: white;
   border: none;
   border-radius: var(--border-radius-sm);
