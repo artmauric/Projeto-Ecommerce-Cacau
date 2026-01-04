@@ -6,16 +6,16 @@ export const products: Product[] = [
     name: 'ORÁCULO DO CACAU',
     subtitle: 'Portal de Sabedoria Ancestral',
     description:
-      'O único oráculo que conecta você à medicina sagrada do cacao. Com 44 cartas para autoconhecimento e transformação espiritual.',
+      'O único oráculo que conecta você à medicina sagrada do cacau. Com 44 cartas para autoconhecimento e transformação espiritual.',
     features: [
-      '44 cartas ilustradas com simbologia do cacao sagrado',
+      '44 cartas ilustradas com simbologia do cacau sagrado',
       'Guia completo de interpretação e spreads',
-      'Conexão com a energia ancestral do cacao',
+      'Conexão com a energia ancestral do cacau',
       'Embalagem premium com pano para leitura',
       'Perfeito para rituais e meditações diárias',
     ],
     price: 197.0,
-    image: '/images/oraculo-cacau.png',
+    image: '/images/Gemini_Generated_Image_7ug0rt7ug0rt7ug0.png',
   },
   {
     id: '2',
