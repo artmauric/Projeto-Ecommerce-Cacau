@@ -6,15 +6,14 @@ export const products: Product[] = [
     name: 'ORÁCULO DO CACAU',
     subtitle: 'Portal de Sabedoria Ancestral',
     description:
-      'O único oráculo que conecta você à medicina sagrada do cacau. Com 44 cartas para autoconhecimento e transformação espiritual.',
+      'Um guia intuitivo para momentos de dúvida, transição e crescimento.',
     features: [
-      '44 cartas ilustradas com simbologia do cacau sagrado',
-      'Guia completo de interpretação e spreads',
-      'Conexão com a energia ancestral do cacau',
-      'Embalagem premium com pano para leitura',
-      'Perfeito para rituais e meditações diárias',
+      'O Oráculo da Cacau é uma ferramenta terapêutica e intuitiva composta por 52 cartas com mensagens profundas e direcionadoras, criadas para apoiar processos de autoconhecimento, cura emocional e conexão espiritual.',
+      'Inspirado na medicina do cacau e na escuta do coração, cada carta oferece reflexões que auxiliam em momentos de dúvida, transição ou busca interior, trazendo clareza, acolhimento e consciência para suas escolhas.',
+      'Mais do que respostas prontas, o Oráculo da Cacau conduz você a acessar sua própria verdade, fortalecendo a intuição e ampliando sua percepção sobre os caminhos da vida.',
+      'Ideal para quem deseja desenvolver a sensibilidade espiritual, aprofundar o autoconhecimento e transformar desafios em oportunidades de crescimento.',
     ],
-    price: 197.0,
+    price: 147.00,
     image: '/images/Gemini_Generated_Image_7ug0rt7ug0rt7ug0.png',
   },
   {
@@ -22,15 +21,13 @@ export const products: Product[] = [
     name: 'PLANNER DO CACAU',
     subtitle: 'Organize Suas Intenções',
     description:
-      'Ferramenta de manifestação e organização espiritual conectada à energia do cacau sagrado.',
+      'Planejamento com alma para uma vida mais alinhada e produtiva.',
     features: [
-      '12 meses de planejamento consciente',
-      'Páginas especiais para rituais e cerimônias',
-      'Espaço para gratidão e reflexões diárias',
-      'Capa dura luxuosa com detalhes em dourado',
-      'Papel premium de alta qualidade',
+      'O Planner da Cacau foi criado para quem deseja organizar a rotina sem perder a conexão consigo mesma. Mais do que um planner comum, ele une planejamento prático e desenvolvimento pessoal, ajudando você a transformar metas, emoções e intenções em ações conscientes no dia a dia',
+      'Com espaços guiados para reflexões, práticas de autoconhecimento e organização intuitiva, ele apoia equilíbrio emocional, clareza mental e alinhamento com seus ciclos e objetivoss',
+      'Ideal para mulheres que buscam mais foco, presença e propósito enquanto constroem uma vida mais leve e significativa',
     ],
-    price: 147.0,
+    price: 157.00,
     image: '/images/planner-cacau2.jpg',
   },
 ]
@@ -38,7 +35,7 @@ export const products: Product[] = [
 export const combo: ComboOffer = {
   name: 'COMBO COMPLETO: ORÁCULO + PLANNER',
   description: 'Adquira os dois produtos e ganhe desconto especial',
-  originalPrice: 317.0,
-  discountPrice: 297.0,
+  originalPrice: 304.00,
+  discountPrice: 269.90,
 }
 
