@@ -10,7 +10,7 @@ export default function Footer() {
           Feito com ❤️ para sua jornada espiritual
         </p>
         <p className="footer-copyright">
-          &copy; 2024 Cacau Sagrado. Todos os direitos reservados.
+          &copy; 2026 Instituto Cura. Todos os direitos reservados.
         </p>
       </div>
     </footer>

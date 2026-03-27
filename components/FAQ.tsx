@@ -7,24 +7,24 @@ export default function FAQ() {
 
   const faqs = [
     {
-      question: 'COMO FUNCIONA O ORÁCULO DO CACAU?',
-      answer: 'O Oráculo do Cacau é um sistema de 44 cartas que conecta você à sabedoria ancestral do cacau sagrado. Cada carta traz mensagens e orientações para sua jornada espiritual e autoconhecimento.',
+      question: 'O Oráculo da Cacau é apenas para quem já trabalha com espiritualidade?',
+      answer: ' Não. O Oráculo da Cacau é indicado tanto para iniciantes quanto para quem já possue prática espiritual. Ele é uma ferramenta de autoconhecimento intuitivo e reflexão.',
     },
     {
-      question: 'O PLANNER DO CACAU É FÍSICO OU DIGITAL?',
-      answer: 'O Planner do Cacau é um produto físico, com capa dura luxuosa, papel premium e detalhes em dourado. É uma ferramenta tangível para sua prática espiritual diária.',
+      question: 'Quantas cartas possui o Oráculo da Cacau?',
+      answer: 'O Oráculo da Cacau é composto por 52 cartas com mensagens direcionadoras para auxiliar em momentos de dúvida, transição e crescimento pessoal.',
     },
     {
-      question: 'POSSO USAR OS PRODUTOS SEM EXPERIÊNCIA PRÉVIA?',
-      answer: 'Sim! Ambos os produtos foram criados para serem acessíveis tanto para iniciantes quanto para praticantes experientes. Incluem guias completos e instruções detalhadas.',
+      question: 'O Planner da Cacau é apenas uma agenda?',
+      answer: 'Não. Ele é um guia de planejamento consciente que une organização prática com desenvolvimento pessoal, ajudando na definição de intenções, metas e reflexões emocionais.',
     },
     {
-      question: 'QUAL O PRAZO DE ENTREGA?',
-      answer: 'O prazo de entrega varia conforme sua localização. Geralmente, enviamos em até 5 dias úteis após a confirmação do pagamento. Você receberá um código de rastreamento por email.',
+      question: 'Posso utilizar o Planner e o Oráculo juntos?',
+      answer: 'Sim. Inclusive existe o combo especial que integra as duas ferramentas, permitindo que você receba direcionamentos intuitivos e organize sua aplicação prática no dia a dia.',
     },
     {
-      question: 'OS PRODUTOS TÊM GARANTIA?',
-      answer: 'Sim! Oferecemos garantia de 7 dias para troca ou devolução, caso você não fique satisfeito com o produto. Entre em contato conosco através do email de suporte.',
+      question: 'Os produtos possuem envio para todo o Brasil?',
+      answer: ' Sim, enviamos para todo o Brasil',
     },
   ]
 
