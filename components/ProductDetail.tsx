@@ -1,14 +1,17 @@
 'use client'
 
 import { Product } from '@/domain/product'
+import { useRouter } from 'next/navigation'
 
 interface ProductDetailProps {
   product: Product
 }
 
 export default function ProductDetail({ product }: ProductDetailProps) {
+  const router = useRouter()
+
   const handleBuy = () => {
-    alert(`Você clicou para comprar: ${product.name}`)
+    router.push(`/checkout/${product.id}`)
   }
 
   return (

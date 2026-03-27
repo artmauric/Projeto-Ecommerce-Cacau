@@ -1,14 +1,17 @@
 'use client'
 
 import { ComboOffer } from '@/domain/product'
+import { useRouter } from 'next/navigation'
 
 interface ComboSectionProps {
   combo: ComboOffer
 }
 
 export default function ComboSection({ combo }: ComboSectionProps) {
+  const router = useRouter()
+
   const handleBuyCombo = () => {
-    alert('Você clicou para comprar o combo!')
+    router.push('/checkout/combo')
   }
 
   return (
