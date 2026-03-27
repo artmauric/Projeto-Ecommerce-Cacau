@@ -29,6 +29,13 @@ export default function CheckoutClient({ item }: { item: CheckoutItem }) {
   const [fullName, setFullName] = useState('')
   const [email, setEmail] = useState('')
   const [whatsApp, setWhatsApp] = useState('')
+  const [cep, setCep] = useState('')
+  const [street, setStreet] = useState('')
+  const [number, setNumber] = useState('')
+  const [complement, setComplement] = useState('')
+  const [neighborhood, setNeighborhood] = useState('')
+  const [city, setCity] = useState('')
+  const [state, setState] = useState('')
   const [submitted, setSubmitted] = useState(false)
 
   const priceLabel = useMemo(() => {
@@ -143,6 +150,99 @@ export default function CheckoutClient({ item }: { item: CheckoutItem }) {
                 autoComplete="tel"
               />
             </label>
+
+            <div className="checkout-divider" aria-hidden="true"></div>
+
+            <div className="checkout-address-header">
+              <div className="checkout-address-title serif-heading">Endereço</div>
+              <div className="checkout-address-hint">Para envio do produto físico.</div>
+            </div>
+
+            <div className="checkout-address-grid">
+              <label className="checkout-field">
+                <span className="checkout-label">CEP</span>
+                <input
+                  className="checkout-input"
+                  value={cep}
+                  onChange={(e) => setCep(e.target.value)}
+                  placeholder="00000-000"
+                  required
+                  inputMode="numeric"
+                  autoComplete="postal-code"
+                />
+              </label>
+
+              <label className="checkout-field">
+                <span className="checkout-label">UF</span>
+                <input
+                  className="checkout-input"
+                  value={state}
+                  onChange={(e) => setState(e.target.value.toUpperCase())}
+                  placeholder="SP"
+                  required
+                  autoComplete="address-level1"
+                  maxLength={2}
+                />
+              </label>
+
+              <label className="checkout-field checkout-field--span2">
+                <span className="checkout-label">Rua</span>
+                <input
+                  className="checkout-input"
+                  value={street}
+                  onChange={(e) => setStreet(e.target.value)}
+                  placeholder="Nome da rua / avenida"
+                  required
+                  autoComplete="street-address"
+                />
+              </label>
+
+              <label className="checkout-field">
+                <span className="checkout-label">Número</span>
+                <input
+                  className="checkout-input"
+                  value={number}
+                  onChange={(e) => setNumber(e.target.value)}
+                  placeholder="123"
+                  required
+                  autoComplete="address-line2"
+                />
+              </label>
+
+              <label className="checkout-field">
+                <span className="checkout-label">Complemento (opcional)</span>
+                <input
+                  className="checkout-input"
+                  value={complement}
+                  onChange={(e) => setComplement(e.target.value)}
+                  placeholder="Apto, casa, bloco..."
+                />
+              </label>
+
+              <label className="checkout-field">
+                <span className="checkout-label">Bairro</span>
+                <input
+                  className="checkout-input"
+                  value={neighborhood}
+                  onChange={(e) => setNeighborhood(e.target.value)}
+                  placeholder="Seu bairro"
+                  required
+                  autoComplete="address-level3"
+                />
+              </label>
+
+              <label className="checkout-field">
+                <span className="checkout-label">Cidade</span>
+                <input
+                  className="checkout-input"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  placeholder="Sua cidade"
+                  required
+                  autoComplete="address-level2"
+                />
+              </label>
+            </div>
 
             <button className="checkout-primary" type="submit">
               Continuar para o pagamento

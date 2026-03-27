@@ -27,7 +27,7 @@ export default function Testimonials() {
               <div className="testimonial-stars">
                 {'★'.repeat(5)}
               </div>
-              <p className="testimonial-text">"{testimonial.text}"</p>
+              <p className="testimonial-text">&quot;{testimonial.text}&quot;</p>
               <p className="testimonial-author">{testimonial.author}</p>
             </div>
           ))}
