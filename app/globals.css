@@ -311,7 +311,12 @@ body {
 }
 
 .product-detail-wrapper {
-  margin-bottom: var(--spacing-xl);
+  /* Aumenta o espaço entre um produto e outro para separação mais clara */
+  margin-bottom: calc(var(--spacing-xl) * 2.2);
+  /* Cria um "slot" visual onde o produto se encaixa */
+  padding: calc(var(--spacing-lg) * 0.8) 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .product-detail {
@@ -401,7 +406,8 @@ body {
 }
 
 .product-detail-price-section {
-  margin-top: var(--spacing-md);
+  /* Afasta um pouco mais o bloco de preço e botão do texto/benefícios */
+  margin-top: calc(var(--spacing-lg) * 0.9);
 }
 
 .price-label {
