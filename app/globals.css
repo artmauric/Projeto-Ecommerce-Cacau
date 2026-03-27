@@ -466,6 +466,9 @@ body {
   overflow: hidden;
   box-shadow: var(--shadow-md);
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .product-grid-card:hover {
@@ -494,6 +497,9 @@ body {
 
 .product-grid-info {
   padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .product-grid-name {
@@ -528,6 +534,7 @@ body {
   font-weight: 700;
   color: var(--accent-color);
   margin-bottom: var(--spacing-md);
+  margin-top: auto;
 }
 
 .product-grid-button {
@@ -543,6 +550,7 @@ body {
   letter-spacing: 1px;
   cursor: pointer;
   transition: background-color var(--transition-normal);
+  margin-top: var(--spacing-sm);
 }
 
 .product-grid-button:hover {
