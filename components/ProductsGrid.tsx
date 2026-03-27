@@ -1,17 +1,14 @@
 'use client'
 
 import { Product } from '@/domain/product'
-import { useRouter } from 'next/navigation'
 
 interface ProductsGridProps {
   products: Product[]
 }
 
 export default function ProductsGrid({ products }: ProductsGridProps) {
-  const router = useRouter()
-
   const handleBuy = (product: Product) => {
-    router.push(`/checkout/${product.id}`)
+    alert(`Você clicou para comprar: ${product.name}`)
   }
 
   return (
