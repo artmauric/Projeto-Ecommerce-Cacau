@@ -37,6 +37,8 @@ export default function CheckoutClient({ item }: { item: CheckoutItem }) {
   const [city, setCity] = useState('')
   const [state, setState] = useState('')
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
 
   const priceLabel = useMemo(() => {
     if (item.kind === 'combo') {
@@ -45,9 +47,50 @@ export default function CheckoutClient({ item }: { item: CheckoutItem }) {
     return item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
   }, [item])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setSubmitted(false)
+    setSubmitError(null)
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('/api/mercadopago/create-preference', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          itemId: item.id,
+          customer: {
+            fullName,
+            email,
+            whatsApp,
+          },
+          address: {
+            cep,
+            street,
+            number,
+            complement,
+            neighborhood,
+            city,
+            state,
+          },
+        }),
+      })
+
+      const data = (await response.json()) as { checkoutUrl?: string; error?: string }
+
+      if (!response.ok || !data.checkoutUrl) {
+        throw new Error(data.error || 'Não foi possível iniciar o pagamento no momento.')
+      }
+
+      setSubmitted(true)
+      window.location.href = data.checkoutUrl
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : 'Erro inesperado ao iniciar pagamento.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -244,18 +287,23 @@ export default function CheckoutClient({ item }: { item: CheckoutItem }) {
               </label>
             </div>
 
-            <button className="checkout-primary" type="submit">
-              Continuar para o pagamento
+            <button className="checkout-primary" type="submit" disabled={isSubmitting}>
+              {isSubmitting ? 'Iniciando pagamento...' : 'Continuar para o pagamento'}
             </button>
+
+            {submitError ? (
+              <div className="checkout-note" role="alert">
+                {submitError}
+              </div>
+            ) : null}
 
             {submitted ? (
               <div className="checkout-note" role="status">
-                Pagamento ainda não integrado. Próximo passo: conectar o gateway com uma rota de servidor segura, sem expor
-                chaves nem lógica sensível no cliente.
+                Redirecionando para o Mercado Pago...
               </div>
             ) : (
               <div className="checkout-note">
-                Ao continuar, você será direcionado para o pagamento (quando o gateway estiver integrado).
+                Ao continuar, você será direcionado com segurança para o Mercado Pago.
               </div>
             )}
           </form>

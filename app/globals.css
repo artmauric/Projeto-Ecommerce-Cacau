@@ -999,6 +999,11 @@ body {
   transition: transform var(--transition-fast), box-shadow var(--transition-normal);
 }
 
+.checkout-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
 .checkout-primary:hover {
   transform: translateY(-1px);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
@@ -1009,6 +1014,42 @@ body {
   color: var(--text-light);
   font-size: 0.95rem;
   line-height: 1.6;
+}
+
+.checkout-status-page {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl) 20px;
+}
+
+.checkout-status-card {
+  width: 100%;
+  max-width: 680px;
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-xl);
+  text-align: center;
+}
+
+.checkout-status-title {
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.checkout-status-text {
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-lg);
+}
+
+.checkout-status-button {
+  display: inline-block;
+  width: auto;
+  text-decoration: none;
 }
 
 @media (max-width: 1024px) {
