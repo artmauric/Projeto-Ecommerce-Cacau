@@ -949,6 +949,17 @@ body {
   font-size: 0.95rem;
 }
 
+.checkout-cep-status {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.checkout-cep-status--error {
+  color: #a63d3d;
+}
+
 .checkout-address-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

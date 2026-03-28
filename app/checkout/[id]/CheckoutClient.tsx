@@ -1,7 +1,16 @@
 'use client'
 
 import Link from 'next/link'
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
+
+function onlyDigits(value: string) {
+  return value.replace(/\D/g, '').slice(0, 8)
+}
+
+function formatCepDisplay(digits: string) {
+  if (digits.length <= 5) return digits
+  return `${digits.slice(0, 5)}-${digits.slice(5)}`
+}
 
 type CheckoutKind = 'product' | 'combo'
 
@@ -39,6 +48,9 @@ export default function CheckoutClient({ item }: { item: CheckoutItem }) {
   const [submitted, setSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
+  const [cepLookupLoading, setCepLookupLoading] = useState(false)
+  const [cepLookupError, setCepLookupError] = useState<string | null>(null)
+  const lastLookupCepRef = useRef<string | null>(null)
 
   const priceLabel = useMemo(() => {
     if (item.kind === 'combo') {
@@ -46,6 +58,55 @@ export default function CheckoutClient({ item }: { item: CheckoutItem }) {
     }
     return item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
   }, [item])
+
+  const handleCepDigitsChange = (raw: string) => {
+    const digits = onlyDigits(raw)
+    setCep(formatCepDisplay(digits))
+    setCepLookupError(null)
+    if (digits.length < 8) {
+      lastLookupCepRef.current = null
+    }
+  }
+
+  const lookupCep = async () => {
+    const digits = onlyDigits(cep)
+    if (digits.length !== 8) {
+      setCepLookupError(null)
+      return
+    }
+    if (lastLookupCepRef.current === digits) return
+
+    setCepLookupLoading(true)
+    setCepLookupError(null)
+
+    try {
+      const response = await fetch(`/api/cep/${digits}`)
+      const data = (await response.json()) as {
+        street?: string
+        neighborhood?: string
+        city?: string
+        state?: string
+        error?: string
+      }
+
+      if (!response.ok) {
+        setCepLookupError(data.error || 'CEP não encontrado.')
+        lastLookupCepRef.current = null
+        return
+      }
+
+      lastLookupCepRef.current = digits
+      if (data.street) setStreet(data.street)
+      if (data.neighborhood) setNeighborhood(data.neighborhood)
+      if (data.city) setCity(data.city)
+      if (data.state) setState(data.state)
+    } catch {
+      setCepLookupError('Não foi possível buscar o endereço. Tente novamente.')
+      lastLookupCepRef.current = null
+    } finally {
+      setCepLookupLoading(false)
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -198,7 +259,10 @@ export default function CheckoutClient({ item }: { item: CheckoutItem }) {
 
             <div className="checkout-address-header">
               <div className="checkout-address-title serif-heading">Endereço</div>
-              <div className="checkout-address-hint">Para envio do produto físico.</div>
+              <div className="checkout-address-hint">
+                Para envio do produto físico. Digite o CEP: rua, bairro, cidade e UF são preenchidos
+                automaticamente (ViaCEP).
+              </div>
             </div>
 
             <div className="checkout-address-grid">
@@ -207,12 +271,22 @@ export default function CheckoutClient({ item }: { item: CheckoutItem }) {
                 <input
                   className="checkout-input"
                   value={cep}
-                  onChange={(e) => setCep(e.target.value)}
+                  onChange={(e) => handleCepDigitsChange(e.target.value)}
+                  onBlur={() => lookupCep()}
                   placeholder="00000-000"
                   required
                   inputMode="numeric"
                   autoComplete="postal-code"
+                  aria-busy={cepLookupLoading}
                 />
+                {cepLookupLoading ? (
+                  <span className="checkout-cep-status">Buscando endereço...</span>
+                ) : null}
+                {cepLookupError ? (
+                  <span className="checkout-cep-status checkout-cep-status--error" role="alert">
+                    {cepLookupError}
+                  </span>
+                ) : null}
               </label>
 
               <label className="checkout-field">

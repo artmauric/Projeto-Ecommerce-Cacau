@@ -71,8 +71,10 @@ function validatePayload(payload: Partial<CreatePreferencePayload>) {
 export async function POST(request: NextRequest) {
   try {
     const accessToken = process.env.MERCADOPAGO_ACCESS_TOKEN
-    const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
+    const appUrl = (process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000').replace(/\/$/, '')
     const notificationUrl = process.env.MERCADOPAGO_WEBHOOK_URL
+    // auto_return exige back_urls.success aceitas pelo MP (HTTPS em produção). Localhost HTTP falha.
+    const canAutoReturn = appUrl.startsWith('https://')
 
     if (!accessToken) {
       return NextResponse.json(
@@ -112,7 +114,7 @@ export async function POST(request: NextRequest) {
         pending: `${appUrl}/checkout/pendente`,
         failure: `${appUrl}/checkout/falha`,
       },
-      auto_return: 'approved',
+      ...(canAutoReturn ? { auto_return: 'approved' as const } : {}),
       statement_descriptor: 'CACAU SAGRADO',
       external_reference: `${order.id}-${Date.now()}`,
       ...(notificationUrl ? { notification_url: notificationUrl } : {}),
